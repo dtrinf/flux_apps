@@ -16,3 +16,5 @@ spec:
       value: "eu-west-1"
     - name: ECR_REGISTRY
       value: "aa"
+    - name: TEST
+      value: "${replicaCount}"
