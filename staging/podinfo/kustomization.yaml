@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - ../../base/podinfo
 patchesStrategicMerge:
-  - podinfo-values.yaml
+  # - podinfo-values.yaml
   # - sealed-secret-val<ues.yaml
   - sops_secrets.yaml
