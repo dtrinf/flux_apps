@@ -9,3 +9,5 @@ spec:
       version: ">=1.0.0-alpha"
   values:
     replicaCount: 4
+    ui:
+      message: "hello"
