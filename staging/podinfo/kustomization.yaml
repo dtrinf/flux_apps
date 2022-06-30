@@ -4,4 +4,5 @@ resources:
   - ../../base/podinfo
 patchesStrategicMerge:
   - podinfo-values.yaml
-  - sealed-secret-values.yaml
+  # - sealed-secret-val<ues.yaml
+  - sops_secrets.yaml
