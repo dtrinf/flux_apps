@@ -9,3 +9,10 @@ spec:
       version: ">=1.0.0-alpha"
   values:
     replicaCount: 4
+  containers:
+  - name: podinfo
+    env: 
+    - name: ECR_REGION
+      value: "eu-west-1"
+    - name: ECR_REGISTRY
+      value: "aa"
