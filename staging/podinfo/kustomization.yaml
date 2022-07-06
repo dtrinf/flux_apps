@@ -5,3 +5,8 @@ resources:
 patchesStrategicMerge:
   - podinfo-values.yaml
   - podinfo-secrets.yaml
+spec:
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
