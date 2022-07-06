@@ -10,4 +10,8 @@ spec:
     values:
         replicaCount: 4
         ui: 
-            existingSecret: podinfo
+        - name: message
+          valueFrom:
+            secretKeyRef:
+              name: podinfo
+              key: uimessage
