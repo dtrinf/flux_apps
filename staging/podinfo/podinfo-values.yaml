@@ -9,9 +9,9 @@ spec:
             version: '>=1.0.0-alpha'
     values:
         replicaCount: 4
-        # ui: 
-        # - name: message
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: podinfo
-        #       key: uimessage
+        ui: 
+        - name: message
+          valueFrom:
+            secretKeyRef:
+              name: podinfo-secrets
+              key: uimessage
