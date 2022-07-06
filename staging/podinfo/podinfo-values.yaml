@@ -4,14 +4,43 @@ metadata:
     name: podinfo
     namespace: apps
 spec:
-  chart:
-    spec:
-      version: '>=1.0.0-alpha'
-  values:
-    - name: replicaCount
-      value: 4       
-    - name: ui.message
-      valueFrom:
-        secretKeyRef:
-          name: podinfo-secrets
-          key: uimessage
+    chart:
+        spec:
+            version: '>=1.0.0-alpha'
+    values:
+        replicaCount: 4
+        ui:
+            color: '#00ff00'
+            ui:
+                message: ENC[AES256_GCM,data:SzjrEFdBSAWtbEPm+A==,iv:CuUqI11B9a7LMzXxNU9OGs9mBHVaatmW3oz9AtoRGBY=,tag:hbtbF64q6z8vTpDCypguHQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-07-06T16:26:48Z"
+    mac: ENC[AES256_GCM,data:KxXd0+iP/IKWUI6L+Z2CEsrMxpdokAoN8OMTCwymHJYD0pg6uWvT8efh/gyMi6iaUQrrXYgcEl6fYzHFQXWhXZt/ysCGVJmFMmqHKMctTNYVM3oBHEWfgIbzjVT20ShP7dDWP9ONGQpbayolKYO3PrMdW/99sdyPXOrGYYFeNKI=,iv:IPKWxHhRyUqB7XHwAgqCntz9mzFCEnx9dFKeh1WPBC8=,tag:X8lwNianCpgMGMSGumKwEg==,type:str]
+    pgp:
+        - created_at: "2022-07-06T16:26:48Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA2arRn2AErx8AQ//XGuafYwE6VcEvlc5THO2gf2Ur1wgLGBBoqQxzs5g799Q
+            41PlgvNt9g1EqCIaJ7GblrEX/uprArgIayFX28qOqBW3CzwZDtyCBi3ViL+UmX+W
+            GP0wXN+b4vQMdkhzBxvALLMe+DyaHPd/qygElb60PD0bDgis+/BLcuitBB4daLMx
+            rRhyVssFVvhLmG+VKQWFE+AkmS5D4TFEy76dUCwhYjbmIMUG59unhMLjJA8rsr9T
+            5MZXtu95/7Metxcbcz3L2XwWqnBXnyDD+hu2LcMqnhkA5zl1/RJLX+PtoD7h/flj
+            hf4pSt9DXrFghJgFLGzc+CzWfJ1EmX8r0vQJpaBpYDOpqGmRxN2kO8XApNL/JQVj
+            PLv9b+0Z9R8/ourl8JLnCBAe7ZH/KV0FRUKpodgy7jLAPqMZ0nydNDIf7upMBkic
+            C2MCQbT4bQOboQmi75luEfU3DksmqMYeclS3eIRB3SxPGZshFutA6liER0McUtVS
+            1APhanKD8pOtCX6E6UAIAeUa+0Mwxm9TYaCfg4W9hzonazvV2/ocdl9Wz6fjRu1n
+            GizUnCszdpwb5ioMlspO67sXn8J6l+kY2aP5ZTCsGUTe3efvpcpwiebpv+cLZcjh
+            0jfMBv7H/8aJlCmrbEXZRw/RnqIVvk70FpA/E7pSdP+2VxZhQqEPiFlvh/Tb3FbS
+            XgFxQa+SzcPBt4AOOYVUN/YV8k44/R3zfI0eci1f2+tbtunXHD2p7sBOlOQzgU9N
+            OICTSSO28CIHlc7/z4w9aQkvgE3/joWyEiWONB7QK4JiPSTyMJm0M3V9tFzjqzM=
+            =WPYU
+            -----END PGP MESSAGE-----
+          fp: 8613B989B50503317A8888D881647CC9F85E990B
+    encrypted_regex: message
+    version: 3.7.1
