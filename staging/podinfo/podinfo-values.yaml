@@ -4,43 +4,16 @@ metadata:
     name: podinfo
     namespace: apps
 spec:
-    chart:
-        spec:
-            version: '>=1.0.0-alpha'
-    values:
-        replicaCount: 4
-        ui:
-            color: ENC[AES256_GCM,data:EDW0+cbsuA==,iv:XulRgC73eXYr96a5EjXTJ+8d2D/qughwDA36wR9kCrs=,tag:lWhaCZy9VMCtBVeC3jfzXA==,type:str]
-            ui:
-                message: ENC[AES256_GCM,data:+Dz3/mhg+L9nIrbrBg==,iv:B9v3/FHHTRnFCpjoFAre6Ueb4RliPYibsJ91rvMbAr0=,tag:t4DcT0YbA+tODuMy8xpzhw==,type:str]
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age: []
-    lastmodified: "2022-07-06T16:29:22Z"
-    mac: ENC[AES256_GCM,data:xDr3jXHaPm7DF0xu55mAPPkeN+unhp0rK6c+dChAVga2NLQW5+NnLiep7vjHz4GXRJ0iDQ6GsbvXTxGo7unA3uXkS5qsL3Rd/TE/A+/JerFgmDS84fiV7g795VH4Q6JGaSPneDnaGyWGKvWhDIgT9ZMVxdwA8ga1BbGoIx0ewXA=,iv:rSyamOJkfrx4ke11e+8ALDCZaeSEz8gmcVTh/4UQO9c=,tag:b1AJ17u6L4TcWDDyK4iBsw==,type:str]
-    pgp:
-        - created_at: "2022-07-06T16:29:21Z"
-          enc: |
-            -----BEGIN PGP MESSAGE-----
-
-            hQIMA2arRn2AErx8AQ/+K29GmIPqIAhVsR93aOENKPYl3ZpY8Hs/C60BryAthgrB
-            97ELTqRjS5b9FQ5rcQ5C/IlV0zT46mBMOybBEJ/DYho2l3XfpRpFj+qkUrvn/OZg
-            CHV/7afwmJo5f/qnbTfSPRcRntPdQh6dBXyYEoCSImU73FDr1gobwwmlBVUxHX4G
-            UhO6QT34zJVi/KvD7hSy1+4e5sdLAQF1c4avASfq4mmO38Zxi5Qh9MH8b1NJno4z
-            4dPqEdf9PuUXmLDmVavlF2MgQiQ3wXctQEysaC0ogbhszkcaXoD04RU27vm9Y4gC
-            KynaIcK/ZxDyHC7F4JsiuKxYLIcgAmoNxCnvLQPB0QR7FZcxYYhZ+AOqnimdH56L
-            iMoz03Me/cPHrYh2tL470n+Uc8jOwoy8yYX2cH8YrJ3+fP2H0onDX/CbkNiWQyA2
-            Vd+d7TA/MJSIH72/udhC4ikdHiKo0kTGrwNPJqihjI9ofvAzKyW61EtUh66zUd/W
-            wyokO/yb11luZM3W2uQXquUZfDlYW2HdiUHO9g0FtrF3HIRTBI1NPj8Kh+dTcQTe
-            7yCPBY/4FYWoAiVFdMcVsTVO5HUX11ct3iG3e4ShJU6UDEX9CqEHKbcZK9ls6cKr
-            RSNNigOs+LPqRqwHkgZKcj8PxZKLbhdNw7sgAXGzBkUYIerQz/fn44oE66qc2KnS
-            XgF1fP9MTXu9IX0/lc76kpp7HDvff/oVSQ2/1Gj8aTPnCfzjqBkHqYvcTp8bFlW5
-            7rXCchG/eWWS57VqMtrnhPB1MNaJN6LqS+9qAWamkhGY+nxRU2opQqSopYxaFYY=
-            =gc3c
-            -----END PGP MESSAGE-----
-          fp: 8613B989B50503317A8888D881647CC9F85E990B
-    encrypted_regex: color|message
-    version: 3.7.1
+  chart:
+    spec:
+      version: '>=1.0.0-alpha'
+  values:
+      replicaCount: 4
+      ui:
+        color: '#00ff00'
+  valuesFrom:
+    - secretKeyRef:
+      name: podinfo-secrets
+      namespace: apps
+      key: values.yaml
+      optional: true
