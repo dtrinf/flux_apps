@@ -4,14 +4,14 @@ metadata:
     name: podinfo
     namespace: apps
 spec:
-    chart:
-        spec:
-            version: '>=1.0.0-alpha'
-    values:
-        replicaCount: 4
-        ui: 
-        - name: message
-          valueFrom:
-            secretKeyRef:
-              name: podinfo-secrets
-              key: uimessage
+  chart:
+    spec:
+      version: '>=1.0.0-alpha'
+  values:
+    - name: replicaCount
+      value: 4       
+    - name: ui.message
+      valueFrom:
+        secretKeyRef:
+          name: podinfo-secrets
+          key: uimessage
