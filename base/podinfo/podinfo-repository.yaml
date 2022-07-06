@@ -6,3 +6,7 @@ metadata:
 spec:
   interval: 5m
   url: https://stefanprodan.github.io/podinfo
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
