@@ -1,0 +1,29 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: flux-apps
+  namespace: apps
+spec:
+  interval: 1m
+  url: https://github.com/dtrinf/flux_apps
+  ref:
+    branch: main
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: podinfo-secrets
+  namespace: apps
+spec:
+  serviceAccountName: flux-apps
+  path: ./staging/podinfo/secrets
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-apps
+  prune: true
+  validation: client
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
