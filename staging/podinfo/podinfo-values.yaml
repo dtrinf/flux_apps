@@ -12,6 +12,5 @@ spec:
   valuesFrom:
     - secretKeyRef:
       name: podinfo-secrets
-      namespace: apps
       key: values.yaml
       optional: true
