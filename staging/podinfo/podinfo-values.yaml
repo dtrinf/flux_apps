@@ -7,9 +7,9 @@ spec:
   chart:
     spec:
       version: '>=1.0.0-alpha'
-      valuesFrom:
-      - kind: Secret
-        name: podinfo-secrets
-        key: values.yaml
-  values:
-      replicaCount: 4
+  # values:
+  #     replicaCount: 4
+  valuesFrom:
+  - kind: Secret
+    name: podinfo-secrets
+    valuesKey: values.yaml
