@@ -10,6 +10,6 @@ spec:
   values:
       replicaCount: 4
   valuesFrom:
-    - secretKeyRef:
-        name: podinfo-secrets
-        key: values.yaml
+    - kind: Secret
+      name: podinfo-secrets
+      key: values.yaml
