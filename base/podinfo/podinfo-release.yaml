@@ -4,7 +4,7 @@ metadata:
   name: podinfo
   namespace: flux-system
 spec:
-  # serviceAccountName: flux-apps
+  serviceAccountName: kustomize-controller
   releaseName: podinfo
   chart:
     spec:
